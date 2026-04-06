@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "GH Token Collector",
+  "version": "1.0",
+  "description": "Passively collects unique Greenhouse board tokens and exports them as JSON.",
+  "permissions": ["storage", "downloads"],
+  "host_permissions": [
+    "*://*.greenhouse.io/*",
+    "*://job-boards.greenhouse.io/*",
+    "*://boards.greenhouse.io/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.greenhouse.io/*",
+        "*://job-boards.greenhouse.io/*",
+        "*://boards.greenhouse.io/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
